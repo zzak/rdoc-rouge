@@ -1,6 +1,6 @@
-# Rdoc::Rouge
+# RDoc::Rouge
 
-TODO: Write a gem description
+Syntax highlighting for RDoc using the pygments friendly Rouge.
 
 ## Installation
 
@@ -18,7 +18,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'rdoc/rouge'
+    html = RDoc::Rouge::Renderer.render <<-markdown
+    ```ruby
+    def hello(who)
+      puts "Hello, #{who}!"
+    end
+    ```
+    markdown
 
 ## Contributing
 

@@ -5,19 +5,22 @@ require 'rdoc/rouge/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rdoc-rouge"
-  spec.version       = Rdoc::Rouge::VERSION
+  spec.version       = RDoc::Rouge::VERSION
   spec.authors       = ["Zachary Scott"]
   spec.email         = ["zachary@zacharyscott.net"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Syntax highlighting for RDoc using the pygments friendly Rouge.}
+  spec.summary       = %q{RDoc plugin to add syntax highlighting.}
+  spec.homepage      = "https://github.com/zzak/rdoc-rouge"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_runtime_dependency "rdoc", "~> 4.0"
+  spec.add_runtime_dependency "rouge", "~> 0.3.0"
+
   spec.add_development_dependency "bundler", "~> 1.3"
+  spec.add_development_dependency "nokogiri"
   spec.add_development_dependency "rake"
 end
