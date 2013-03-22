@@ -32,4 +32,11 @@ foo=1
     assert_equal result, "\n<h1 id=\"label-Hello%2C+World%21\">Hello, World!</h1>\n"
   end
 
+  it "renders toc" do
+    renderer = RDoc::Rouge::Renderer.new(:toc => true)
+    result = renderer.parse "# Foo"
+
+    assert_equal result, "<li><a href='#label-Foo'>Foo</a></li>"
+  end
+
 end
