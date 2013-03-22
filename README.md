@@ -19,7 +19,8 @@ Or install it yourself as:
 ## Usage
 
     require 'rdoc/rouge'
-    html = RDoc::Rouge::Renderer.render <<-markdown
+    renderer = RDoc::Rouge::Renderer
+    html = renderer.parse <<-markdown
     ```ruby
     def hello(who)
       puts "Hello, #{who}!"

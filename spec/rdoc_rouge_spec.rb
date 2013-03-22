@@ -8,8 +8,9 @@ describe RDoc::Rouge do
     refute version.nil?
   end
 
-  it 'renders a thing' do
-    result = RDoc::Rouge::Renderer.render <<-mkd
+  it "renders a thing" do
+    renderer = RDoc::Rouge::Renderer.new
+    result = renderer.parse <<-mkd
 ``` javascript
 var foo = 1;
 ```
@@ -22,6 +23,13 @@ foo=1
     doc = Nokogiri::HTML(result)
     refute_empty doc.search("pre.highlight")
     assert doc.search("pre.highlight").size == 2
+  end
+
+  it "renders with pipe" do
+    renderer = RDoc::Rouge::Renderer.new(:pipe => true)
+    result = renderer.parse "# Hello, World!"
+
+    assert_equal result, "\n<h1 id=\"label-Hello%2C+World%21\">Hello, World!</h1>\n"
   end
 
 end

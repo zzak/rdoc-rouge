@@ -5,10 +5,14 @@ require "rdoc/rouge/version"
 module RDoc
   module Rouge
     class Renderer
-      class << self
-        def render text
-          ::RDoc::Markdown.parse(text).accept(Rouge::Formatter.new)
-        end
+      attr_accessor :formatter
+
+      def initialize(options={})
+        @formatter = Rouge::Formatter.new(options)
+      end
+
+      def parse text
+        ::RDoc::Markdown.parse(text).accept(@formatter)
       end
     end
   end

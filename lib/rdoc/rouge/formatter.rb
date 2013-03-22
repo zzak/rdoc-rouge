@@ -3,8 +3,12 @@ require "rouge"
 module RDoc
   module Rouge
     class Formatter < ::RDoc::Markup::ToHtml
-      def initialize
-        super ::RDoc::Options.new, nil
+
+      def initialize(options={})
+        opts = ::RDoc::Options.new
+        opts.pipe = options.delete(:pipe) || false
+
+        super opts, nil
       end
 
       def accept_verbatim verbatim
