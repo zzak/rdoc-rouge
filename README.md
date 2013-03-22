@@ -28,6 +28,12 @@ Or install it yourself as:
     ```
     markdown
 
+If you just want to generate a table of contents from your markdown, we have
+exposed RDoc::Markup::ToTableOfContents
+
+    RDoc::Rouge::Renderer.new(:toc => true).parse("# markdown")
+    #=> "<li><a href='#label-markdown'>markdown</a></li>"
+
 ## Contributing
 
 1. Fork it
