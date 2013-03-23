@@ -1,5 +1,7 @@
 # RDoc::Rouge
 
+[![Build Status](https://travis-ci.org/zzak/rdoc-rouge.png?branch=master)](https://travis-ci.org/zzak/rdoc-rouge)
+
 Syntax highlighting for RDoc using the pygments friendly Rouge.
 
 ## Installation
