@@ -8,6 +8,11 @@ rvm:
   - jruby-head
   - rbx-19mode
 matrix:
+  include:
+    - { rvm: 1.9.3, env: rouge=master }
+    - { rvm: 2.0.0, env: rouge=master }
+    - { rvm: ruby-head, env: rouge=master }
+    - { rvm: jruby-head, env: rouge=master }
   allow_failures:
     - rvm: rbx-19mode
 notifications:
