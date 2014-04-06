@@ -18,3 +18,5 @@ matrix:
 notifications:
   recipients:
     - zachary@zacharyscott.net
+before_install:
+  - gem install bundler -v '~> 1.x'
